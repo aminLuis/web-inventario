@@ -1,0 +1,35 @@
+<div class="form">
+
+    <h2>Registro producto</h2>
+
+    <form [formGroup]="formProducto" (ngSubmit)="saveProducto()">
+
+        <p>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Cantidad</mat-label>
+                <input matInput formControlName="cantidad">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="fechaIngreso">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </p>
+
+        <button mat-button class="success">Registrar</button>
+
+    </form>
+
+</div>
