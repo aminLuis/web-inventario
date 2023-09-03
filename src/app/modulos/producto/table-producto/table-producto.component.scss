@@ -1,0 +1,15 @@
+.ocultar{
+    display: block;
+}
+
+@media (max-width: 600px){
+    .ocultar{
+        display: none;
+    }
+}
+
+button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}

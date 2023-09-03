@@ -14,11 +14,11 @@ import { MatListModule } from '@angular/material/list';
 import { BodyComponent } from './body/body.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormProductoComponent } from './modulos/producto/form-producto/form-producto.component';
-import { TableProdcutoComponent } from './modulos/producto/table-prodcuto/table-prodcuto.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { EditComponent } from './modulos/producto/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     DashboardComponent,
     BodyComponent,
     FormProductoComponent,
-    TableProdcutoComponent
+    EditComponent
   ],
   imports: [
     BrowserModule,
