@@ -28,7 +28,20 @@
             </mat-form-field>
         </p>
 
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario que crea</mat-label>
+                <mat-select formControlName="idUsuario">
+                  <mat-option *ngFor="let usuario of usuarios" [value]="usuario.id">
+                    {{usuario.nombre}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+
         <button mat-button class="success">Registrar</button>
+        <button mat-button class="danger" (click)="closeModal()">Cancelar</button>
+
 
     </form>
 

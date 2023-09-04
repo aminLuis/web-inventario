@@ -10,6 +10,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { EditComponent } from '../edit/edit.component';
+import Swal from 'sweetalert2';
+import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
 
 @Component({
   selector: 'app-table-producto',
@@ -58,7 +60,7 @@ export class TableProductoComponent implements OnInit, AfterViewInit{
     this.productoService.getProductos().subscribe(res=>{
       this.productos = res;
       this.dataSource = new MatTableDataSource(this.productos);
-      console.log('Productos: ',this.productos);
+      
     });
   }
 
@@ -73,10 +75,28 @@ export class TableProductoComponent implements OnInit, AfterViewInit{
   }
 
   deleteProducto(id:string){
-    this.productoService.deleteProducto(id).subscribe(res=>{
-      console.log(res);
-      alert('Producto eliminado con exito !!');
-    });
+
+    Swal.fire({
+      title: '¿Seguro que desea eliminar el registro?',
+      text: "Será eliminado de forma permanente!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, deseo eliminarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.productoService.deleteProducto(id).subscribe(res=>{
+        });
+
+        Swal.fire(
+          'Eliminado!',
+          'El registro ha sido eliminado.',
+          'success'
+        )
+      }
+    })
   }
 
   applyFilter(event: Event) {
