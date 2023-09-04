@@ -31,9 +31,7 @@ export default class ProductoComponent implements OnInit{
   }
 
   openForm(){
-    this.dialog.open(FormProductoComponent,{
-      width: '30%'
-    });
+    this.dialog.open(FormProductoComponent);
   }
 
 }

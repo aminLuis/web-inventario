@@ -37,12 +37,12 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="openFormEdit()">
+            <button mat-menu-item (click)="selectProducto(row); openFormEdit()">
               <mat-icon>edit</mat-icon>
               <span>Editar</span>
             </button>
            
-            <button mat-menu-item>
+            <button mat-menu-item (click)="deleteProducto(row.id)">
               <mat-icon>delete</mat-icon>
               <span>Eliminar</span>
             </button>

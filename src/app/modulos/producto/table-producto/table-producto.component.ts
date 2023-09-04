@@ -33,6 +33,7 @@ export class TableProductoComponent implements OnInit, AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
   productos: Producto[]=[];
   subscription: any;
+  dataSend!: Producto;
 
   constructor(private productoService:ProductoServiceService,
     private dialog: MatDialog
@@ -61,8 +62,21 @@ export class TableProductoComponent implements OnInit, AfterViewInit{
     });
   }
 
+  selectProducto(producto:Producto){
+    this.dataSend = producto;
+  }
+
   openFormEdit(){
-    this.dialog.open(EditComponent);
+    this.dialog.open(EditComponent,{
+      data: this.dataSend
+    });
+  }
+
+  deleteProducto(id:string){
+    this.productoService.deleteProducto(id).subscribe(res=>{
+      console.log(res);
+      alert('Producto eliminado con exito !!');
+    });
   }
 
   applyFilter(event: Event) {
